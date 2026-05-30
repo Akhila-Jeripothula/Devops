@@ -1,0 +1,55 @@
+#Day 1
+
+#Virtualization and virtual machine
+
+To understand virtualisation as a beginner, it is helpful to start with the concept of efficiency, which is the core goal of this technology
+.
+The Core Concept: Efficiency
+Imagine you own a one-acre plot of land and build a single house on it
+. Even if you live lavishly, you might realise you only actually use half an acre, leaving the other half wasted
+. To be more efficient, you could build a second house on the unused half and rent it out
+. Now, two separate families live on the same land, using their own resources (like water and garden space) without interfering with each other
+.
+In the software world, a physical server is like that land
+. Traditionally, an organisation might buy a large server with 100GB of RAM but only run one application that uses 4GB
+. This results in 90% of the resources being wasted
+. Virtualisation solves this by allowing you to split that one physical server into multiple "logical" ones
+.
+What is a Virtual Machine (VM)?
+A Virtual Machine is a virtual environment that functions exactly like a real computer system
+.
+Logical Isolation: You aren't physically breaking the server into pieces; instead, you are creating logical partitions
+. Because they only exist logically and not physically, they are called "virtual"
+.
+Independent Resources: Each VM has its own CPU, memory, and hardware
+. One VM does not depend on another for its resources, even though they share the same physical "host" server
+.
+The Key Component: The Hypervisor
+The process of virtualisation is managed by a specific type of software called a hypervisor
+.
+The hypervisor is installed on the bare metal (the physical server) and is responsible for creating and managing the virtual machines
+.
+It acts as the "key" that deals with the VMs and shares out the physical resources of the server to each virtual environment
+.
+Popular examples of hypervisors include VMware, Zen, and Oracle VirtualBox
+.
+Virtualisation in the Real World: The Cloud
+This technology is what makes Cloud Computing (like Amazon Web Services, Microsoft Azure, or Google Cloud) possible
+.
+Cloud providers build massive data centres filled with millions of physical servers
+.
+When you request a server from them (such as an AWS EC2 instance), you aren't getting a physical box; you are requesting a VM
+.
+Their system finds an ideal physical server, and the hypervisor on that machine creates a VM for you with the exact RAM and CPU you asked for
+.
+You are given an IP address and access keys to use it remotely, but you do not physically own or touch the hardware
+.
+Summary for Beginners
+Physical Server: The actual hardware (the "land")
+.
+Hypervisor: The software that creates and manages the split (the "builder")
+.
+Virtual Machine: The isolated, logical computer system you actually use (the "rented house")
+.
+By using virtualisation, a single physical server that previously could only support one team can now support millions of users efficiently
+. You can even try this on your own laptop today by using software like Oracle VirtualBox to run a second "virtual" computer inside your existing one
