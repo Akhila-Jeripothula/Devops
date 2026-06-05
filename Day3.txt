@@ -1,0 +1,303 @@
+LINUX COMMANDS
+
+
+I HAVE NOT INSTALLED UBUNTU. I JUST DOWNLOADED WSL(WINDOW SUBSYSTEM FOR LINUX) ON WINDOWS
+
+---
+
+# Step 1: Check where you are
+
+```bash
+pwd
+```
+
+**Meaning:** Print Working Directory
+
+Example output:
+
+```bash
+/home/akhila_j
+```
+
+This tells you your current location.
+
+---
+
+# Step 2: See what's inside
+
+```bash
+ls
+```
+
+**Meaning:** List files and folders
+
+Example:
+
+```bash
+Desktop  Downloads  Documents
+```
+
+For more details:
+
+```bash
+ls -l
+```
+
+---
+
+# Step 3: Create a practice folder
+
+```bash
+mkdir linux-practice
+```
+
+Check:
+
+```bash
+ls
+```
+
+Output:
+
+```bash
+linux-practice
+```
+
+---
+
+# Step 4: Move into the folder
+
+```bash
+cd linux-practice
+```
+
+Verify:
+
+```bash
+pwd
+```
+
+Output:
+
+```bash
+/ home / akhila_j / linux-practice
+```
+
+(Without spaces in actual output.)
+
+---
+
+# Step 5: Create a file
+
+```bash
+touch notes.txt
+```
+
+Check:
+
+```bash
+ls
+```
+
+Output:
+
+```bash
+notes.txt
+```
+
+---
+
+# Step 6: View file contents
+
+```bash
+cat notes.txt
+```
+
+Nothing appears because it's empty.
+
+Add text:
+
+```bash
+echo "Learning Linux" > notes.txt
+```
+
+Now:
+
+```bash
+cat notes.txt
+```
+
+Output:
+
+```bash
+Learning Linux
+```
+
+---
+
+# Step 7: Copy a file
+
+```bash
+cp notes.txt backup.txt
+```
+
+Check:
+
+```bash
+ls
+```
+
+Output:
+
+```bash
+backup.txt  notes.txt
+```
+
+---
+
+# Step 8: Rename a file
+
+```bash
+mv backup.txt copy.txt
+```
+
+Check:
+
+```bash
+ls
+```
+
+Output:
+
+```bash
+copy.txt  notes.txt
+```
+
+`mv` is used for both moving and renaming.
+
+---
+
+# Step 9: Delete a file
+
+```bash
+rm copy.txt
+```
+
+Check:
+
+```bash
+ls
+```
+
+Output:
+
+```bash
+notes.txt
+```
+
+---
+
+# Step 10: Check memory (RAM)
+
+```bash
+free -h
+```
+
+Example:
+
+```bash
+total        used        free
+7.6Gi        2.1Gi       5.0Gi
+```
+
+Useful for DevOps server monitoring.
+
+---
+
+# Step 11: Check CPU cores
+
+```bash
+nproc
+```
+
+Example:
+
+```bash
+8
+```
+
+Means your system has 8 CPU cores available.
+
+---
+
+# Step 12: Monitor the system
+
+```bash
+top
+```
+
+You'll see live CPU and memory usage.
+
+To exit:
+
+```text
+q
+```
+
+---
+
+# Mini Practice Project
+
+Run these commands one after another:
+
+```bash
+mkdir devops
+cd devops
+
+touch file1.txt
+touch file2.txt
+
+ls
+
+cp file1.txt backup.txt
+
+mv file2.txt renamed.txt
+
+ls
+
+cat file1.txt
+
+free -h
+
+nproc
+```
+
+---
+
+## Cheat Sheet
+
+| Command   | Purpose                |
+| --------- | ---------------------- |
+| `pwd`     | Show current directory |
+| `ls`      | List files/folders     |
+| `cd`      | Change directory       |
+| `mkdir`   | Create folder          |
+| `touch`   | Create file            |
+| `cat`     | Display file content   |
+| `cp`      | Copy file/folder       |
+| `mv`      | Move/Rename file       |
+| `rm`      | Delete file            |
+| `free -h` | Check RAM              |
+| `nproc`   | Check CPU cores        |
+| `top`     | Live system monitoring |
+
+After you complete these commands, the next Linux topics for DevOps are:
+
+1. Absolute vs Relative Paths
+2. File Permissions (`chmod`)
+3. Users & Groups
+4. Process Management (`ps`, `kill`)
+5. Package Management (`apt`)
+6. Shell Scripting
+
+These are the Linux skills you'll use most often in DevOps.
