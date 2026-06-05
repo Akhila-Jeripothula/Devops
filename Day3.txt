@@ -301,3 +301,5 @@ After you complete these commands, the next Linux topics for DevOps are:
 6. Shell Scripting
 
 These are the Linux skills you'll use most often in DevOps.
+
+
