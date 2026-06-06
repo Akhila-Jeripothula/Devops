@@ -1,0 +1,82 @@
+#Shell scripting for beginners - PART 1
+
+
+
+
+Part 1: What is Shell Scripting and Why Use It?
+Automation is the process of reducing manual, tedious activities that require significant effort
+. On a Linux machine, shell scripting is the tool used to automate these day-to-day or regular activities
+. While you might manually print 10 numbers or create a few files, it becomes technically impossible to do so manually when the requirement grows to thousands or millions
+. A shell script allows you to define a set of actions that the computer executes for you
+.
+Part 2: Navigating the Linux Terminal
+Before writing scripts, you must understand the basic commands for managing files and folders:
+ls: Used to list files and folders in your current directory
+.
+ls -ltr: Lists files with details like timestamps, owners, and permissions
+.
+touch: Creates a new, empty file
+.
+mkdir: Creates a new folder (directory)
+.
+cd: Changes your current directory
+. You can use cd .. to go back one level
+.
+pwd: Prints the "Present Working Directory," telling you exactly which folder you are currently in
+.
+man: Short for "manual," this command provides the documentation for any other command (e.g., man ls)
+.
+Part 3: Writing Your First Script
+To create a shell script, you typically follow these steps:
+Create the file: Use a name ending in .sh (e.g., script.sh)
+.
+Open the file: Use a text editor like vi or vim
+.
+Enter Insert Mode: Press i on your keyboard to start typing
+.
+Save and Exit: Press Esc, then type :wq! to save (write) and quit
+. If you want to quit without saving changes, type :q!
+.
+View Content: Use the cat command to print the contents of a file to your screen without opening it
+.
+Part 4: The Anatomy of a Script
+The first line of every shell script should be the Shebang (#!), followed by the path to the executable that will run the script, such as #!/bin/bash
+.
+Executables: Different options like bash, sh, or ksh exist, but Bash is the most widely used and recommended
+.
+Comments: Any line starting with a # (after the shebang) is a comment. The script ignores these, but they are vital for explaining what your code does to others
+.
+Echo: Use the echo command to print text to the terminal
+.
+Part 5: Permissions and Security
+Linux is highly secure; just because you created a file doesn't mean you have permission to run it
+. You must grant permissions using chmod (Change Mode)
+.
+The Formula (4-2-1): Linux uses numbers to represent permissions: 4 for Read, 2 for Write, and 1 for Execute
+.
+Permission Groups: Permissions are set for three groups: the Owner, the Group, and Others
+.
+Common Commands:
+chmod 777: Gives everyone (Owner, Group, Others) full read, write, and execute permissions (4+2+1=7)
+.
+chmod 770: Gives the owner and group full access but denies others entirely
+.
+Part 6: Shell Scripting in DevOps
+In a professional setting, DevOps engineers use shell scripts for infrastructure maintenance, code management (using Git), and configuration management
+.
+A primary use case is Node Health Monitoring
+. Instead of manually checking thousands of Virtual Machines (VMs), a script can automatically log into each one, check its status, and email a report if any issues are found
+. Key commands for monitoring health include:
+nproc: Lists the number of CPUs
+.
+free: Shows total, used, and free RAM
+.
+top: Provides a live view of all running processes and their resource usage
+.
+Part 7: Intermediate and Advanced Concepts
+As you grow, you will encounter more complex topics:
+History: The history command shows a list of all commands you have recently entered
+.
+Signals: You can stop a running script with Ctrl+C. Advanced scripts use the trap command to "catch" these signals and decide how to handle them
+.
+Cron Jobs: These are used to schedule scripts to run automatically at specific times or intervals
