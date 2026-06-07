@@ -1,0 +1,47 @@
+SHELL SCRIPTING PART 2
+
+
+This guide breaks down the advanced shell scripting concepts for DevOps as explained in the video transcript, organised into logical parts for a beginner's understanding.
+
+### **Part 1: Introduction and Environment Setup**
+The session serves as the second part of a "Zero to Hero" series, moving from basic commands to advanced automation.
+*   **Operating System:** The instructor uses an **Ubuntu image on an AWS EC2 instance**, but notes that Bash scripting is widely compatible across various cloud providers like Azure.
+*   **Review of Basics:** For a DevOps engineer, analyzing "node health" is critical. Four key commands are highlighted for this purpose:
+    *   **`df -h`**: Checks available **disk space** in a human-readable format.
+    *   **`free -g`**: Shows the **memory (RAM)** configuration.
+    *   **`nproc`**: Displays the number of **CPUs** available on the machine.
+    *   **`top`**: Provides a real-time view of **currently running processes**, memory consumption, and CPU usage.
+
+### **Part 2: Structuring a Professional Shell Script**
+The goal is to create a script named `node_health.sh` that automates these health checks.
+*   **The Shebang:** Always start with `#!/bin/bash`. While `#!/bin/sh` exists, it is a generic link that might point to different executables like `dash`, which can cause your script to fail if it relies on Bash-specific features.
+*   **Metadata Information:** Use comments (starting with `#`) to include the **author, date, purpose, and version**. This is vital for collaboration so others understand the script's intent without guessing.
+*   **Debug Mode (`set -x`):** Instead of manually writing `echo` statements for every line, using `set -x` at the start of your script puts it in **debug mode**. This automatically prints every command before executing it, making it much easier to see what the script is doing.
+
+### **Part 3: Process Management and Filtering**
+DevOps engineers often need to manage hundreds of microservices running as individual processes.
+*   **`ps -ef`**: This command lists **every process** running on the virtual machine in a "full" format.
+*   **The Pipe (`|`):** This is a powerful tool that sends the **output of one command as the input to the next**.
+*   **`grep`**: Used to filter text. For example, `ps -ef | grep Amazon` will only show processes that contain the word "Amazon".
+*   **`awk`**: While `grep` finds whole lines, `awk` is a pattern-processing language used to extract **specific columns**. For example, if you only want the Process ID (the second column), you would use `awk -F" " '{print $2}'`.
+
+### **Part 4: Advanced Error Handling Best Practices**
+Reliable scripts must handle errors gracefully to avoid "partial" successes that can corrupt data.
+*   **`set -e`**: This tells the script to **exit immediately** if any command fails. This prevents the script from continuing to Step 2 if Step 1 has already failed.
+*   **`set -o pipefail`**: By default, `set -e` only looks at the exit status of the *last* command in a pipe. If the first command in a pipe fails but the last one succeeds, the script continues. Enabling `pipefail` ensures the script exits if **any** command in the pipeline fails.
+
+### **Part 5: Networking and File Discovery**
+*   **`curl`**: This is used to retrieve data from the internet or API endpoints. It is the command-line version of tools like Postman or the Python `requests` library.
+*   **`wget`**: Similar to `curl`, but it is primarily used to **download files** and save them directly to your local disk.
+*   **`find`**: A powerful command to search the entire file system for specific files or folders by name.
+*   **User Privileges (`sudo` and `su`):**
+    *   **`sudo`**: "Substitute user do"—allows you to run a command with root (admin) privileges.
+    *   **`su -`**: "Switch user"—allows you to log in as a different user, typically the root user.
+
+### **Part 6: Automation Logic (Loops and Conditions)**
+*   **`if-else` Loops:** Used for decision-making. The syntax is unique because an `if` block must end with **`fi`** (if spelled backwards). Example: If variable A is greater than B, print "A is greater".
+*   **`for` Loops:** Used to repeat an action multiple times, such as printing numbers from 1 to 100. A `for` loop in Bash starts with `do` and ends with **`done`**.
+
+### **Part 7: Signal Trapping for Robustness**
+*   **Signals:** Linux uses signals to communicate actions, such as **Ctrl+C** (which sends a `SIGINT` to interrupt/stop a process).
+*   **`trap` Command:** This allows you to "catch" these signals. For example, you can use `trap` to prevent a user from stopping a script with Ctrl+C, or to trigger a **cleanup command** (like deleting temporary files) if the script is interrupted unexpectedly.
